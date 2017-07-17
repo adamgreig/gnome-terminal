@@ -1472,6 +1472,8 @@ terminal_screen_button_press (GtkWidget      *widget,
         return TRUE; /* don't do anything else such as select with the click */
     }
 
+#if 0
+/* DON'T pass right-click through to apps */
   if (event->type == GDK_BUTTON_PRESS && event->button == 3)
     {
       if (!(event->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK | GDK_MOD1_MASK)))
@@ -1493,6 +1495,13 @@ terminal_screen_button_press (GtkWidget      *widget,
           return TRUE;
         }
     }
+#else
+  if(event->type == GDK_BUTTON_PRESS && event->button == 3) {
+      terminal_screen_do_popup(screen, event, matched_string, matched_flavor);
+      matched_string = NULL;
+      return TRUE;
+  }
+#endif
 
   /* default behavior is to let the terminal widget deal with it */
   if (button_press_event)

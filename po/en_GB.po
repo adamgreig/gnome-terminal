@@ -1529,7 +1529,7 @@ msgstr ""
 
 #: ../src/terminal-options.c:235 ../src/terminal-util.c:234
 msgid "GNOME Terminal"
-msgstr "GNOME Terminal"
+msgstr "Adams GNOME Terminal"
 
 #: ../src/terminal-options.c:275
 #, c-format

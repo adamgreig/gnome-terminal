@@ -84,6 +84,7 @@
     <menuitem action="PopupCopyLinkAddress" />
     <separator />
     <menuitem action="PopupNewTerminal" />
+    <menuitem action="PopupCloseWindow" />
     <separator />
     <menuitem action="PopupCopy" />
     <menuitem action="PopupPaste" />

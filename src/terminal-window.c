@@ -2033,6 +2033,8 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
   gtk_action_set_visible (action, show_link);
   action = gtk_action_group_get_action (priv->action_group, "PopupCopyLinkAddress");
   gtk_action_set_visible (action, show_link);
+  action = gtk_action_group_get_action (priv->action_group, "PopupCloseWindow");
+  gtk_action_set_visible (action, TRUE);
 
   action = gtk_action_group_get_action (priv->action_group, "PopupCopy");
   gtk_action_set_sensitive (action, vte_terminal_get_has_selection (VTE_TERMINAL (screen)));
@@ -2565,6 +2567,9 @@ terminal_window_init (TerminalWindow *window)
       { "PopupNewTerminal", NULL, N_("Open _Terminal"), NULL,
         NULL,
         G_CALLBACK (file_new_terminal_callback) },
+      { "PopupCloseWindow", NULL, N_("C_lose Window"), NULL,
+        NULL,
+        G_CALLBACK (file_close_window_callback) },
       { "PopupLeaveFullscreen", NULL, N_("L_eave Full Screen"), NULL,
         NULL,
         G_CALLBACK (popup_leave_fullscreen_callback) },
